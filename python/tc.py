@@ -58,11 +58,11 @@ def tcount(A):
 
 graphs = [
      "Newman/karate",
-    #"SNAP/com-Youtube",
-    # "SNAP/as-Skitter",
-    # "SNAP/com-LiveJournal",
-    #    'SNAP/com-Orkut',
-    #    'SNAP/com-Friendster'
+     "SNAP/com-Youtube",
+     "SNAP/as-Skitter",
+     "SNAP/com-LiveJournal",
+     'SNAP/com-Orkut',
+     'SNAP/com-Friendster'
 ]
 
 
@@ -74,14 +74,15 @@ def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 R = 3
 for name in graphs:
     print(f"Loading {name}")
-    G = dict(Matrix.ssget(name, binary_cache_dir=".ssgetpy"))[
+    G = dict(Matrix.ssget(name, binary_cache_dir="~/.ssgetpy"))[
         name.split("/")[1] + ".mtx"
     ]
     G = G.cast(FP64)
     G.wait()
     results = defaultdict(dict)
     print(f"{name} | {G.shape} | {G.nvals} edges | {tcount(G)} triangles")
-    for centrality in TC1, TC2, TC3:
+    # for centrality in TC1, TC2, TC3:
+    for centrality in TC1, TC3:
         fname = centrality.__name__
         print(f"Running {fname} on {name} {R} times")
         result = repeat(
@@ -93,9 +94,9 @@ for name in graphs:
             f"average for {R} runs",
         )
     tc1 = results[name]["TC1"].nonzero()
-    tc2 = results[name]["TC2"].nonzero()
+    # tc2 = results[name]["TC2"].nonzero()
     tc3 = results[name]["TC3"].nonzero()
-    print(f"TC1 equal to TC2? {tc1.iseq(tc2, isclose)}")
-    print(f"TC2 equal to TC3? {tc2.iseq(tc3, isclose)}")
+    # print(f"TC1 equal to TC2? {tc1.iseq(tc2, isclose)}")
+    # print(f"TC2 equal to TC3? {tc2.iseq(tc3, isclose)}")
     print(f"TC1 equal to TC3? {tc1.iseq(tc3, isclose)}")
-    breakpoint()
+    # breakpoint()
