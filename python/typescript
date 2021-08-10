@@ -178,4 +178,61 @@ jumbled: {jumbled}
 """[m[97m[40m
 
 sizeof = ffi.sizeof
-ffinew = ffi.new[50;99H1,1[11CTop[1;1H[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[27m[23m[m[97m[40m[H[2J[1;9Hfwrite(buff(typecode, sizeof([91m"int32_t"[m[97m[40m)))[2;9Hfwrite(buff(typesize, sizeof([91m"size_t"[m[97m[40m)))[3;9Hfwrite(buff(is_iso, sizeof([91m"bool"[m[97m[40m)))[4;9Hfwrite(buff(is_jumbled, sizeof([91m"bool"[m[97m[40m)))[6;9H[92mif[m[97m[40m is_hyper:[7;13HAp_size[[92m0[m[97m[40m] = (nvec[[92m0[m[97m[40m] + [92m1[m[97m[40m) * Isize[8;13HAh_size[[92m0[m[97m[40m] = nvec[[92m0[m[97m[40m] * Isize[9;13HAi_size[[92m0[m[97m[40m] = nvals[[92m0[m[97m[40m] * Isize[10;13HAx_size[[92m0[m[97m[40m] = nvals[[92m0[m[97m[40m] * typesize[[92m0[m[97m[40m][11;13Hfwrite(buff(Ap[[92m0[m[97m[40m], Ap_size[[92m0[m[97m[40m]))[12;13Hfwrite(buff(Ah[[92m0[m[97m[40m], Ah_size[[92m0[m[97m[40m]))[13;13Hfwrite(buff(Ai[[92m0[m[97m[40m], Ai_size[[92m0[m[97m[40m]))[14;9H[92melif[m[97m[40m is_sparse:[15;13HAp_size[[92m0[m[97m[40m] = (nvec[[92m0[m[97m[40m] + [92m1[m[97m[40m) * Isize[16;13HAi_size[[92m0[m[97m[40m] = nvals[[92m0[m[97m[40m] * Isize[17;13HA
+ffinew = ffi.new[50;99H1,1[11CTop[1;1H[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[27m[23m[m[97m[40m[H[2J[1;9Hfwrite(buff(typecode, sizeof([91m"int32_t"[m[97m[40m)))[2;9Hfwrite(buff(typesize, sizeof([91m"size_t"[m[97m[40m)))[3;9Hfwrite(buff(is_iso, sizeof([91m"bool"[m[97m[40m)))[4;9Hfwrite(buff(is_jumbled, sizeof([91m"bool"[m[97m[40m)))[6;9H[92mif[m[97m[40m is_hyper:[7;13HAp_size[[92m0[m[97m[40m] = (nvec[[92m0[m[97m[40m] + [92m1[m[97m[40m) * Isize[8;13HAh_size[[92m0[m[97m[40m] = nvec[[92m0[m[97m[40m] * Isize[9;13HAi_size[[92m0[m[97m[40m] = nvals[[92m0[m[97m[40m] * Isize[10;13HAx_size[[92m0[m[97m[40m] = nvals[[92m0[m[97m[40m] * typesize[[92m0[m[97m[40m][11;13Hfwrite(buff(Ap[[92m0[m[97m[40m], Ap_size[[92m0[m[97m[40m]))[12;13Hfwrite(buff(Ah[[92m0[m[97m[40m], Ah_size[[92m0[m[97m[40m]))[13;13Hfwrite(buff(Ai[[92m0[m[97m[40m], Ai_size[[92m0[m[97m[40m]))[14;9H[92melif[m[97m[40m is_sparse:[15;13HAp_size[[92m0[m[97m[40m] = (nvec[[92m0[m[97m[40m] + [92m1[m[97m[40m) * Isize[16;13HAi_size[[92m0[m[97m[40m] = nvals[[92m0[m[97m[40m] * Isize[17;13HAx_size[[92m0[m[97m[40m] = nvals[[92m0[m[97m[40m] * typesize[[92m0[m[97m[40m][18;13Hfwrite(buff(Ap[[92m0[m[97m[40m], Ap_size[[92m0[m[97m[40m]))[19;13Hfwrite(buff(Ai[[92m0[m[97m[40m], Ai_size[[92m0[m[97m[40m]))[20;9H[92melif[m[97m[40m is_bitmap:[21;13HAb_size[[92m0[m[97m[40m] = nrows[[92m0[m[97m[40m] * ncols[[92m0[m[97m[40m] * ffi.sizeof([91m"int8_t"[m[97m[40m)[22;13HAx_size[[92m0[m[97m[40m] = nrows[[92m0[m[97m[40m] * ncols[[92m0[m[97m[40m] * typesize[[92m0[m[97m[40m][23;13Hfwrite(buff(Ab[[92m0[m[97m[40m], Ab_size[[92m0[m[97m[40m]))[25;9Hfwrite(buff(Ax[[92m0[m[97m[40m], Ax_size[[92m0[m[97m[40m]))[27;5H[92mif[m[97m[40m by_col [92mand[m[97m[40m is_hyper:[28;9Hcheck_status([29;13HA,[30;13Hlib.GxB_Matrix_pack_HyperCSC([31;17HA[[92m0[m[97m[40m],[32;17HAp,[33;17HAh,[34;17HAi,[35;17HAx,[36;17HAp_size[[92m0[m[97m[40m],[37;17HAh_size[[92m0[m[97m[40m],[38;17HAi_size[[92m0[m[97m[40m],[39;17HAx_size[[92m0[m[97m[40m],[40;17His_iso[[92m0[m[97m[40m],[41;17Hnvec[[92m0[m[97m[40m],[42;17His_jumbled[[92m0[m[97m[40m],[43;17HNULL,[44;13H),[45;9H)[47;5H[92melif[m[97m[40m by_row [92mand[m[97m[40m is_hyper:[48;9Hcheck_status([49;13HA,[50;99H300,9[9C54%[25;9H[?12l[?25h[50;1H[?1006l[?1002l[50;99H[K[50;1H[?1l>[?1049l[0;36mhypersparse $[0m 
+[0;36mhypersparse $[0m 
+[0;36mhypersparse $[0m 
+[0;36mhypersparse $[0m 
+[0;36mhypersparse $[0m 
+[0;36mhypersparse $[0m vi /home/faculty/davis/GrB/pygraphblas_test/lib/python3.8/site-packages/suitesparse_graphblas/io/binaryy.py[A[0;36mhypersparse $[0m pwd[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvi virtualenv --python=python3.8 pygraphblas_test[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/home/faculty/davis/GrB/pygraphblas_test/lib/python3.8/site-packages/suitesparse_graphblas/io/binaryy.py[A[0;36mhypersparse $[0m pwd[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cython tc.pydir[Kpython tc.py
+Loading Newman/karate
+Newman/karate | (34, 34) | 156 edges | 45 triangles
+Running TC1 on Newman/karate 3 times
+TC1 on Newman/karate took  0.0003313074509302775 average for 3 runs
+Running TC3 on Newman/karate 3 times
+TC3 on Newman/karate took  0.0004579400022824605 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-Youtube
+SNAP/com-Youtube | (1134890, 1134890) | 5975248 edges | 3056386 triangles
+Running TC1 on SNAP/com-Youtube 3 times
+TC1 on SNAP/com-Youtube took  0.1590719468270739 average for 3 runs
+Running TC3 on SNAP/com-Youtube 3 times
+TC3 on SNAP/com-Youtube took  0.11261013305435578 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/as-Skitter
+SNAP/as-Skitter | (1696415, 1696415) | 22190596 edges | 28769868 triangles
+Running TC1 on SNAP/as-Skitter 3 times
+TC1 on SNAP/as-Skitter took  0.5855515686174234 average for 3 runs
+Running TC3 on SNAP/as-Skitter 3 times
+TC3 on SNAP/as-Skitter took  0.363020408898592 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-LiveJournal
+SNAP/com-LiveJournal | (3997962, 3997962) | 69362378 edges | 177820130 triangles
+Running TC1 on SNAP/com-LiveJournal 3 times
+TC1 on SNAP/com-LiveJournal took  2.251849979472657 average for 3 runs
+Running TC3 on SNAP/com-LiveJournal 3 times
+TC3 on SNAP/com-LiveJournal took  1.1641074701522787 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-Orkut
+SNAP/com-Orkut | (3072441, 3072441) | 234370166 edges | 627584181 triangles
+Running TC1 on SNAP/com-Orkut 3 times
+TC1 on SNAP/com-Orkut took  19.57805084840705 average for 3 runs
+Running TC3 on SNAP/com-Orkut 3 times
+TC3 on SNAP/com-Orkut took  9.397451189657053 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-Friendster
+Traceback (most recent call last):
+  File "tc.py", line 77, in <module>
+    G = dict(Matrix.ssget(name, binary_cache_dir="~/.ssgetpy"))[
+  File "/home/faculty/davis/GrB/pygraphblas_test/lib/python3.8/site-packages/pygraphblas/matrix.py", line 560, in ssget
+    M.to_binfile(Mbin)
+  File "/home/faculty/davis/GrB/pygraphblas_test/lib/python3.8/site-packages/pygraphblas/matrix.py", line 871, in binwrite
+    binary.binwrite(self._matrix, filename, comments, opener)
+  File "/home/faculty/davis/GrB/pygraphblas_test/lib/python3.8/site-packages/suitesparse_graphblas/io/binary.py", line 300, in binwrite
+    fwrite(buff(Ax[0], Ax_size[0]))
+OSError: [Errno 14] Bad address
+[0;36mhypersparse $[0m [K[0;36mhypersparse $[0m e[Kexit
+exit
+
+Script done on Tue 10 Aug 2021 04:28:16 PM CDT
