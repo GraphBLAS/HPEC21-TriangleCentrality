@@ -30,7 +30,7 @@ def TC1(A):
     T = A.mxm(A, mask=A, desc=ST1)
     y = T.reduce_vector()
     k = y.reduce_float()
-    return (3 * A.plus_second(y) - 2 * (T.one() @ y) + y) / k
+    return (3 * (A @ y) - 2 * (T.one() @ y) + y) / k
 
 
 def TC2(A):
@@ -57,8 +57,8 @@ def tcount(A):
 
 
 graphs = [
-    # "Newman/karate",
-    "SNAP/com-Youtube",
+     "Newman/karate",
+    #"SNAP/com-Youtube",
     # "SNAP/as-Skitter",
     # "SNAP/com-LiveJournal",
     #    'SNAP/com-Orkut',
