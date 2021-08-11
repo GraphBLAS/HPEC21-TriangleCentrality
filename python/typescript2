@@ -1,0 +1,74 @@
+Script started on Tue 10 Aug 2021 05:09:49 PM CDT
+groups: cannot find name for group ID 8047
+Intel Suite:
+Copyright (C) 2009-2019 Intel Corporation. All rights reserved.
+Intel(R) VTune(TM) Amplifier 2019 (build 591499)
+[1;34m==>[0m 75 installed packages
+-- [0;35mlinux-ubuntu16.04-broadwell[0m / [0;32mgcc@5.4.0[0m ----------------------
+autoconf[0;36m@2.69[0m                expat[0;36m@2.2.10[0m    isl[0;36m@0.20[0m              libunistring[0;36m@0.9.10[0m  openssl[0;36m@1.1.1j[0m        sqlite[0;36m@3.31.1[0m
+autoconf[0;36m@2.69[0m                gcc[0;36m@6.3.0[0m       isl[0;36m@0.21[0m              libxml2[0;36m@2.9.10[0m       pcre2[0;36m@10.31[0m           sqlite[0;36m@3.34.0[0m
+autoconf-archive[0;36m@2019.01.06[0m  gcc[0;36m@9.3.0[0m       libbsd[0;36m@0.10.0[0m         libxml2[0;36m@2.9.10[0m       pcre2[0;36m@10.35[0m           tar[0;36m@1.32[0m
+automake[0;36m@1.16.2[0m              gcc[0;36m@10.1.0[0m      libedit[0;36m@3.1-20191231[0m  m4[0;36m@1.4.18[0m            perl[0;36m@5.30.2[0m           util-linux-uuid[0;36m@2.36[0m
+automake[0;36m@1.16.3[0m              gdbm[0;36m@1.18.1[0m     libevent[0;36m@2.1.12[0m       mpc[0;36m@1.1.0[0m            perl[0;36m@5.32.1[0m           util-macros[0;36m@1.19.1[0m
+berkeley-db[0;36m@18.1.40[0m          gettext[0;36m@0.20.2[0m  libffi[0;36m@3.3[0m            mpc[0;36m@1.1.0[0m            pkgconf[0;36m@1.6.3[0m         valgrind[0;36m@3.16.1[0m
+boost[0;36m@1.75.0[0m                 gettext[0;36m@0.21[0m    libffi[0;36m@3.3[0m            mpfr[0;36m@3.1.6[0m           pkgconf[0;36m@1.7.3[0m         xz[0;36m@5.2.5[0m
+bzip2[0;36m@1.0.8[0m                  git[0;36m@2.26.0[0m      libiconv[0;36m@1.16[0m         mpfr[0;36m@4.0.2[0m           py-pip[0;36m@19.3[0m           xz[0;36m@5.2.5[0m
+cmake[0;36m@3.19.5[0m                 git[0;36m@2.29.0[0m      libidn2[0;36m@2.1.1a[0m        ncurses[0;36m@6.2[0m          py-setuptools[0;36m@46.1.3[0m  zlib[0;36m@1.2.11[0m
+curl[0;36m@7.68.0[0m                  gmp[0;36m@6.1.2[0m       libidn2[0;36m@2.3.0[0m         numactl[0;36m@2.0.14[0m       python[0;36m@3.7.7[0m          zstd[0;36m@1.4.4[0m
+curl[0;36m@7.74.0[0m                  gmp[0;36m@6.2.1[0m       libpciaccess[0;36m@0.16[0m     openmpi[0;36m@4.0.5[0m        python[0;36m@3.8.0[0m
+diffutils[0;36m@3.7[0m                hwloc[0;36m@2.4.0[0m     libsigsegv[0;36m@2.12[0m       openssh[0;36m@8.4p1[0m        python[0;36m@3.8.7[0m
+expat[0;36m@2.2.9[0m                  isl[0;36m@0.18[0m        libtool[0;36m@2.4.6[0m         openssl[0;36m@1.1.1g[0m       readline[0;36m@8.0[0m
+[0;36mhypersparse $[0m python --version
+Python 3.8.0
+[0;36mhypersparse $[0m python3 -c 'import pygraphblas; print(pygraphblas.GxB_IMPLEMENTATION)'
+(5, 1, 5)
+[0;36mhypersparse $[0m pty[Kdir
+total 24
+ 4 tc.py  20 typescript   0 typescript2
+[0;36mhypersparse $[0m pt[Kython tc.py
+Loading Newman/karate
+Newman/karate | (34, 34) | 156 edges | 45 triangles
+Running TC1 on Newman/karate 3 times
+TC1 on Newman/karate took  0.0003207549452781677 average for 3 runs
+Running TC3 on Newman/karate 3 times
+TC3 on Newman/karate took  0.00044476985931396484 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-Youtube
+SNAP/com-Youtube | (1134890, 1134890) | 5975248 edges | 3056386 triangles
+Running TC1 on SNAP/com-Youtube 3 times
+TC1 on SNAP/com-Youtube took  0.16402276108662286 average for 3 runs
+Running TC3 on SNAP/com-Youtube 3 times
+TC3 on SNAP/com-Youtube took  0.12486906846364339 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/as-Skitter
+SNAP/as-Skitter | (1696415, 1696415) | 22190596 edges | 28769868 triangles
+Running TC1 on SNAP/as-Skitter 3 times
+TC1 on SNAP/as-Skitter took  0.5985274513562521 average for 3 runs
+Running TC3 on SNAP/as-Skitter 3 times
+TC3 on SNAP/as-Skitter took  0.36805809879054624 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-LiveJournal
+SNAP/com-LiveJournal | (3997962, 3997962) | 69362378 edges | 177820130 triangles
+Running TC1 on SNAP/com-LiveJournal 3 times
+TC1 on SNAP/com-LiveJournal took  2.2831438773622117 average for 3 runs
+Running TC3 on SNAP/com-LiveJournal 3 times
+TC3 on SNAP/com-LiveJournal took  1.186170222858588 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-Orkut
+SNAP/com-Orkut | (3072441, 3072441) | 234370166 edges | 627584181 triangles
+Running TC1 on SNAP/com-Orkut 3 times
+TC1 on SNAP/com-Orkut took  19.75037127546966 average for 3 runs
+Running TC3 on SNAP/com-Orkut 3 times
+TC3 on SNAP/com-Orkut took  9.458008120146891 average for 3 runs
+TC1 equal to TC3? True
+Loading SNAP/com-Friendster
+SNAP/com-Friendster | (65608366, 65608366) | 3612134270 edges | 4173724142 triangles
+Running TC1 on SNAP/com-Friendster 3 times
+TC1 on SNAP/com-Friendster took  437.2051521213725 average for 3 runs
+Running TC3 on SNAP/com-Friendster 3 times
+TC3 on SNAP/com-Friendster took  215.74008948138604 average for 3 runs
+TC1 equal to TC3? True
+[0;36mhypersparse $[0m exit
+exit
+
+Script done on Wed 11 Aug 2021 10:08:48 AM CDT
