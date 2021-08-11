@@ -1,0 +1,77 @@
+
+--------------------------------------------------------------------------------
+Python results (python 3.8.0, pygraphblas 5.1.5.1, SS:GrB 5.1.5)
+--------------------------------------------------------------------------------
+
+Which gcc was used to compile SS:GrB?
+
+SNAP/com-Youtube | (1134890, 1134890) | 5975248 edges | 3056386 triangles
+TC1 on SNAP/com-Youtube took  0.16402276108662286 average for 3 runs
+TC3 on SNAP/com-Youtube took  0.12486906846364339 average for 3 runs
+
+SNAP/as-Skitter | (1696415, 1696415) | 22190596 edges | 28769868 triangles
+TC1 on SNAP/as-Skitter took  0.5985274513562521 average for 3 runs
+TC3 on SNAP/as-Skitter took  0.36805809879054624 average for 3 runs
+
+SNAP/com-LiveJournal | (3997962, 3997962) | 69362378 edges | 177820130 triangles
+TC1 on SNAP/com-LiveJournal took  2.2831438773622117 average for 3 runs
+TC3 on SNAP/com-LiveJournal took  1.186170222858588 average for 3 runs
+
+SNAP/com-Orkut | (3072441, 3072441) | 234370166 edges | 627584181 triangles
+TC1 on SNAP/com-Orkut took  19.75037127546966 average for 3 runs
+TC3 on SNAP/com-Orkut took  9.458008120146891 average for 3 runs
+
+SNAP/com-Friendster | (65608366, 65608366) | 3612134270 edges | 4173724142 triangles
+TC1 on SNAP/com-Friendster took  437.2051521213725 average for 3 runs
+TC3 on SNAP/com-Friendster took  215.74008948138604 average for 3 runs
+
+
+--------------------------------------------------------------------------------
+LAGraph results using SuiteSparse:GraphBLAS 5.1.5 and gcc 5.4.0
+--------------------------------------------------------------------------------
+
+# of trials: 3
+threads to test:  40
+Avg: TCentrality(1) nthreads:  40 time:     0.150979 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
+Avg: TCentrality(3) nthreads:  40 time:     0.122971 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
+
+Avg: TCentrality(1) nthreads:  40 time:     0.551111 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
+Avg: TCentrality(3) nthreads:  40 time:     0.364334 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
+
+Avg: TCentrality(1) nthreads:  40 time:     2.150466 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
+Avg: TCentrality(3) nthreads:  40 time:     1.176027 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
+
+Avg: TCentrality(1) nthreads:  40 time:    19.581139 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
+Avg: TCentrality(3) nthreads:  40 time:     9.976416 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
+
+Avg: TCentrality(1) nthreads:  40 time:   442.873336 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
+Avg: TCentrality(3) nthreads:  40 time:   229.267167 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
+
+
+--------------------------------------------------------------------------------
+LAGraph results using SuiteSparse:GraphBLAS 5.1.5 and gcc 10.1.0
+--------------------------------------------------------------------------------
+
+Avg: TCentrality(1) nthreads:  40 time:     0.143810 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
+Avg: TCentrality(3) nthreads:  40 time:     0.121309 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
+
+Avg: TCentrality(1) nthreads:  40 time:     0.519295 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
+Avg: TCentrality(3) nthreads:  40 time:     0.324038 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
+
+Avg: TCentrality(1) nthreads:  40 time:     2.073290 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
+Avg: TCentrality(3) nthreads:  40 time:     1.067273 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
+
+Avg: TCentrality(1) nthreads:  40 time:    18.820106 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
+Avg: TCentrality(3) nthreads:  40 time:     9.128309 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
+
+in progress:
+matrix: /raid/matrices/com-Friendster/com-Friendster.grb
+[.grb]
+Reading binary file: /raid/matrices/com-Friendster/com-Friendster.grb
+read time: 72.9332
+TC3: warmup time 210.627 sec, # triangles: 4173724142
+TC1: threads 40 trial  0:   428.743256 sec
+threads 40 trial  0:   428.743256 sec
+
+
+
