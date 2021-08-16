@@ -1,7 +1,7 @@
 using SuiteSparseMatrixCollection
 using MatrixMarket
 using SuiteSparseGraphBLAS
-gbset(SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.NOFORMAT)
+gbset(SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.BYROW)
 using BenchmarkTools
 using SparseArrays
 include("tc.jl")
