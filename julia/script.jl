@@ -21,6 +21,7 @@ for name ∈ graphs
     path = fetch_ssmc(matrices[matrices.name .== name, :])[1]
     G = GBMatrix(convert(SparseMatrixCSC{Float64}, MatrixMarket.mmread(joinpath(path, "$name.mtx"))))
     SuiteSparseGraphBLAS.gbset(G, SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.BYROW)
+    print(G)
     GC.gc()
     println("$name | $(size(G)) | $(nnz(G)) edges")
     for centrality in [PR, TC1, TC3]
