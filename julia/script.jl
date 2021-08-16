@@ -24,6 +24,7 @@ for name ∈ graphs
     SuiteSparseGraphBLAS.gbset(G, SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.BYROW)
     show(stdout, MIME"text/plain"(), G)
     GC.gc()
+    G[:,:, mask=G, desc=SuiteSparseGraphBLAS.S] = 1
     println("$name | $(size(G)) | $(nnz(G)) edges")
     for centrality in [PR, TC1, TC3]
         println("Benchmarking $(string(centrality)) on $(name)")
