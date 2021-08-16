@@ -4,15 +4,16 @@ using SuiteSparseGraphBLAS
 SuiteSparseGraphBLAS.gbset(SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.BYROW)
 using BenchmarkTools
 using SparseArrays
+using LinearAlgebra
 include("tc.jl")
 include("pr.jl")
 graphs = [
-    "karate",
+    #"karate",
     "com-Youtube",
     "as-Skitter",
     "com-LiveJournal",
     "com-Orkut",
-    "com-Friendster",
+    #"com-Friendster",
 ]
 
 ssmc = ssmc_db()
@@ -20,11 +21,12 @@ matrices = filter(row -> row.name ∈ graphs, ssmc)
 BenchmarkTools.DEFAULT_PARAMETERS.gcsample = true
 for name ∈ graphs
     path = fetch_ssmc(matrices[matrices.name .== name, :])[1]
-    G = GBMatrix(SparseArrays.sortSparseMatrixCSC!(convert(SparseMatrixCSC{Float64}, MatrixMarket.mmread(joinpath(path, "$name.mtx")))))
+    G = GBMatrix(convert(SparseMatrixCSC{Float64}, MatrixMarket.mmread(joinpath(path, "$name.mtx"))))
     SuiteSparseGraphBLAS.gbset(G, SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.BYROW)
     show(stdout, MIME"text/plain"(), G)
     GC.gc()
     G[:,:, mask=G, desc=SuiteSparseGraphBLAS.S] = 1
+    diag(G)
     println("$name | $(size(G)) | $(nnz(G)) edges")
     for centrality in [PR, TC1, TC3]
         println("Benchmarking $(string(centrality)) on $(name)")
