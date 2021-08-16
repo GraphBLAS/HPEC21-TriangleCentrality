@@ -41,6 +41,38 @@ TC1 on SNAP/com-Friendster took  437.2051521213725 average for 3 runs
 TC3 on SNAP/com-Friendster took  215.74008948138604 average for 3 runs
 
 --------------------------------------------------------------------------------
+Python results (python 3.8.0, pygraphblas 5.1.5.1, SS:GrB 5.1.5), Aug 12, 2021
+--------------------------------------------------------------------------------
+
+SNAP/com-Youtube | (1134890, 1134890) | 5975248 edges | 3056386 triangles
+
+PR on SNAP/com-Youtube took  0.5004611828674873 average for 3 runs
+TC1 on SNAP/com-Youtube took  0.16013833973556757 average for 3 runs
+TC3 on SNAP/com-Youtube took  0.1228582113981247 average for 3 runs
+
+SNAP/as-Skitter | (1696415, 1696415) | 22190596 edges | 28769868 triangles
+PR on SNAP/as-Skitter took  1.1028703795745969 average for 3 runs
+TC1 on SNAP/as-Skitter took  0.5920128105208278 average for 3 runs
+TC3 on SNAP/as-Skitter took  0.36852081834028166 average for 3 runs
+
+SNAP/com-LiveJournal | (3997962, 3997962) | 69362378 edges | 177820130 triangles
+PR on SNAP/com-LiveJournal took  1.6457969363157947 average for 3 runs
+TC1 on SNAP/com-LiveJournal took  2.260039218390981 average for 3 runs
+TC3 on SNAP/com-LiveJournal took  1.1801749498893817 average for 3 runs
+
+SNAP/com-Orkut | (3072441, 3072441) | 234370166 edges | 627584181 triangles
+PR on SNAP/com-Orkut took  3.9967559004823365 average for 3 runs
+TC1 on SNAP/com-Orkut took  19.678500127668183 average for 3 runs
+TC3 on SNAP/com-Orkut took  9.41144435852766 average for 3 runs
+
+SNAP/com-Friendster | (65608366, 65608366) | 3612134270 edges | 4173724142 triangles
+PR on SNAP/com-Friendster took  244.4239060273394 average for 3 runs
+TC1 on SNAP/com-Friendster took  439.0879410520817 average for 3 runs
+TC3 on SNAP/com-Friendster took  214.21172545601925 average for 3 runs
+
+Script done on Thu 12 Aug 2021 01:23:11 PM CDT
+
+--------------------------------------------------------------------------------
 LAGraph results using SuiteSparse:GraphBLAS 5.1.5 and gcc 5.4.0, Aug 10, 2021
 --------------------------------------------------------------------------------
 
