@@ -1,6 +1,7 @@
 using SuiteSparseMatrixCollection
 using MatrixMarket
 using SuiteSparseGraphBLAS
+gbset(SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.NOFORMAT)
 using BenchmarkTools
 using SparseArrays
 include("tc.jl")
@@ -19,7 +20,7 @@ matrices = filter(row -> row.name ∈ graphs, ssmc)
 BenchmarkTools.DEFAULT_PARAMETERS.gcsample = true
 for name ∈ graphs
     path = fetch_ssmc(matrices[matrices.name .== name, :])[1]
-    G = GBMatrix(convert(SparseMatrixCSC{Float64}, MatrixMarket.mmread(joinpath(path, "$name.mtx"))))
+    G = GBMatrix(sortSparseMatrixCSC!(convert(SparseMatrixCSC{Float64}, MatrixMarket.mmread(joinpath(path, "$name.mtx")))))
     SuiteSparseGraphBLAS.gbset(G, SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.BYROW)
     show(stdout, MIME"text/plain"(), G)
     GC.gc()
