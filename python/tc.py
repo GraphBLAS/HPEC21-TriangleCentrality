@@ -18,10 +18,15 @@ def PR(A, damping=0.85, itermax=100, tol=1e-4):
         r = temp
         w = t / d
         r[:] = teleport
-        A.plus_second(w, out=r, accum=FP64.plus, desc=T0)
+        # saxpy:
+        # A.plus_second(w, out=r, accum=FP64.plus, desc=T0)
+        # FIXME: A is symmetric; should be AT in CSR format:
+        # dot:
+        A.plus_second(w, out=r, accum=FP64.plus)
         t -= r
         t.abs(out=t)
         if t.reduce_float() <= tol:
+            print(f"iterations: {i}====================================")
             break
     return r
 
@@ -36,10 +41,11 @@ def TC1(A):
 def TC3(A):
     M = A.tril(-1)
     T = A.plus_pair(A, mask=M, desc=ST1)
-    y = T.reduce() + T.reduce(desc=ST0)
+    y = T.reduce() + T.reduce(desc=T0)
     k = y.reduce_float()
-    T2 = T.plus_second(y) + T.plus_second(y, desc=ST0)
-    r = (3 * A.plus_second(y)) - (2 * T2) + y
+    T2 = T.plus_second(y) + T.plus_second(y, desc=T0)
+    # r = (3 * A.plus_second(y)) - (2 * T2) + y
+    r = (3 * A.plus_second(y)) + ((-2) * T2) + y
     return r / k
 
 
@@ -63,6 +69,7 @@ def main(graphs, repeat=3):
         G.wait()
         results = defaultdict(dict)
         print(f"{name} | {G.shape} | {G.nvals} edges | {tcount(G)} triangles")
+        options_set(burble=True)
         for centrality in PR, TC1, TC3:
             fname = centrality.__name__
             print(f"Running {fname} on {name} {repeat} times")
@@ -77,6 +84,7 @@ def main(graphs, repeat=3):
                 sum(result) / len(result),
                 f"average for {repeat} runs",
             )
+        options_set(burble=False)
         tc1 = results[name]["TC1"].nonzero()
         tc3 = results[name]["TC3"].nonzero()
         print(f"TC1 equal to TC3? {tc1.iseq(tc3, isclose)}")
