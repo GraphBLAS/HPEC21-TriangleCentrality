@@ -27,8 +27,9 @@ for name ∈ graphs
     G[:,:, mask=G, desc=SuiteSparseGraphBLAS.S] = 1
     diag(G)
     println("$name | $(size(G)) | $(nnz(G)) edges")
+    d = reduce(+, A; dims=2)
     for centrality in [PR, TC1, TC3]
         println("Benchmarking $(string(centrality)) on $(name)")
-        result = @benchmark $centrality($G) samples=3 seconds=100
+        result = @benchmark $centrality($G, $d) samples=3 seconds=100
     end
 end
