@@ -9,8 +9,8 @@ function PR(A, α = 0.85, maxiters = 100, ϵ = 1.0e-4)
         temp = t; t = r; r = temp
         w = t ./ d
         r[:] = teleport
-        mul!(r, A', w, (+, second), accum=+)
-        t .-= r
+        mul!(r, A, w, (+, second), accum=+)
+        eadd!(t, t, r, -)
         map!(abs, t)
         if reduce(+, t) <= ϵ
             break
