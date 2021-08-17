@@ -31,5 +31,6 @@ for name ∈ graphs
     for centrality in [PR, TC1, TC3]
         println("Benchmarking $(string(centrality)) on $(name)")
         result = @benchmark $centrality($G, $d) samples=3 seconds=100
+        show(stdout,MIME"text/plain"(),result)
     end
 end
