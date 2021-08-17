@@ -13,7 +13,7 @@ graphs = [
     "as-Skitter",
     "com-LiveJournal",
     "com-Orkut",
-    #"com-Friendster",
+    "com-Friendster",
 ]
 
 ssmc = ssmc_db()
@@ -23,7 +23,6 @@ for name ∈ graphs
     path = fetch_ssmc(matrices[matrices.name .== name, :])[1]
     G = GBMatrix(convert(SparseMatrixCSC{Float64}, MatrixMarket.mmread(joinpath(path, "$name.mtx"))))
     SuiteSparseGraphBLAS.gbset(G, SuiteSparseGraphBLAS.FORMAT, SuiteSparseGraphBLAS.BYROW)
-    show(stdout, MIME"text/plain"(), G)
     GC.gc()
     G[:,:, mask=G, desc=SuiteSparseGraphBLAS.S] = 1
     diag(G)
@@ -31,6 +30,5 @@ for name ∈ graphs
     for centrality in [PR, TC1, TC3]
         println("Benchmarking $(string(centrality)) on $(name)")
         result = @benchmark $centrality($G) samples=3 seconds=100
-        show(stdout,MIME"text/plain"(),result)
     end
 end
