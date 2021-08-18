@@ -9,21 +9,16 @@ def PR(A, d_out, damping=0.85, itermax=100, tol=1e-4):
     n = A.nrows
     t = Vector.sparse(FP64, n)
     r = Vector.dense(FP64, n, fill=1.0 / n)
-    # d.assign_scalar(damping, accum=FP64.div)
     d = d_out / damping
-    dmin = Vector.dense(FP64, n, fill=1.0 /damping)
-    d.eadd (dmin, FP64.max, out=d)
+    dmin = Vector.dense(FP64, n, fill=1.0 / damping)
+    d.eadd(dmin, FP64.max, out=d)
     teleport = (1 - damping) / n
-    for i in range(1,itermax):
+    for i in range(1, itermax):
         temp = t
         t = r
         r = temp
         w = t / d
         r[:] = teleport
-        # saxpy:
-        # A.plus_second(w, out=r, accum=FP64.plus, desc=T0)
-        # FIXME: A is symmetric; should be AT in CSR format:
-        # dot:
         A.plus_second(w, out=r, accum=FP64.plus)
         t -= r
         t.abs(out=t)
@@ -33,20 +28,19 @@ def PR(A, d_out, damping=0.85, itermax=100, tol=1e-4):
     return r
 
 
-def TC1(A,d):
+def TC1(A, d):
     T = A.mxm(A, mask=A, desc=ST1)
     y = T.reduce_vector()
     k = y.reduce_float()
     return (3 * (A @ y) - 2 * (T.one() @ y) + y) / k
 
 
-def TC3(A,d):
+def TC3(A, d):
     M = A.tril(-1)
     T = A.plus_pair(A, mask=M, desc=ST1)
     y = T.reduce() + T.reduce(desc=T0)
     k = y.reduce_float()
     T2 = T.plus_second(y) + T.plus_second(y, desc=T0)
-    # r = (3 * A.plus_second(y)) - (2 * T2) + y
     r = (3 * A.plus_second(y)) + ((-2) * T2) + y
     return r / k
 
@@ -70,7 +64,7 @@ def main(graphs, repeat=3):
         G = G.cast(FP64)
         G.wait()
         d = G.reduce_vector()
-        print(f"missing entries in d: {(d.size-d.nvals)} ") ;
+        print(f"missing entries in d: {(d.size-d.nvals)} ")
         results = defaultdict(dict)
         print(f"{name} | {G.shape} | {G.nvals} edges | {tcount(G)} triangles")
         # options_set(burble=True)
