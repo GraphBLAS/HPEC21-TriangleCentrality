@@ -1,124 +1,4 @@
-Summary of results
-
---------------------------------------------------------------------------------
-Python results (python 3.8.0, pygraphblas 5.1.5.1, SS:GrB 5.1.5), Aug 10-11, 2021
---------------------------------------------------------------------------------
-
-def TC1(A):
-    T = A.mxm(A, mask=A, desc=ST1)
-    y = T.reduce_vector()
-    k = y.reduce_float()
-    return (3 * (A @ y) - 2 * (T.one() @ y) + y) / k
-
-def TC3(A):
-    M = A.tril(-1)
-    T = A.plus_pair(A, mask=M, desc=ST1)
-    y = T.reduce() + T.reduce(desc=ST0)
-    k = y.reduce_float()
-    return (
-        3 * A.plus_second(y) - (2 * (T.plus_second(y) + T.plus_second(y, desc=ST0))) + y
-    ) / k
-
-Which gcc was used to compile SS:GrB?
-
-SNAP/com-Youtube | (1134890, 1134890) | 5975248 edges | 3056386 triangles
-TC1 on SNAP/com-Youtube took  0.16402276108662286 average for 3 runs
-TC3 on SNAP/com-Youtube took  0.12486906846364339 average for 3 runs
-
-SNAP/as-Skitter | (1696415, 1696415) | 22190596 edges | 28769868 triangles
-TC1 on SNAP/as-Skitter took  0.5985274513562521 average for 3 runs
-TC3 on SNAP/as-Skitter took  0.36805809879054624 average for 3 runs
-
-SNAP/com-LiveJournal | (3997962, 3997962) | 69362378 edges | 177820130 triangles
-TC1 on SNAP/com-LiveJournal took  2.2831438773622117 average for 3 runs
-TC3 on SNAP/com-LiveJournal took  1.186170222858588 average for 3 runs
-
-SNAP/com-Orkut | (3072441, 3072441) | 234370166 edges | 627584181 triangles
-TC1 on SNAP/com-Orkut took  19.75037127546966 average for 3 runs
-TC3 on SNAP/com-Orkut took  9.458008120146891 average for 3 runs
-
-SNAP/com-Friendster | (65608366, 65608366) | 3612134270 edges | 4173724142 triangles
-TC1 on SNAP/com-Friendster took  437.2051521213725 average for 3 runs
-TC3 on SNAP/com-Friendster took  215.74008948138604 average for 3 runs
-
---------------------------------------------------------------------------------
-Python results (python 3.8.0, pygraphblas 5.1.5.1, SS:GrB 5.1.5), Aug 12, 2021
---------------------------------------------------------------------------------
-
-SNAP/com-Youtube | (1134890, 1134890) | 5975248 edges | 3056386 triangles
-
-PR on SNAP/com-Youtube took  0.5004611828674873 average for 3 runs
-TC1 on SNAP/com-Youtube took  0.16013833973556757 average for 3 runs
-TC3 on SNAP/com-Youtube took  0.1228582113981247 average for 3 runs
-
-SNAP/as-Skitter | (1696415, 1696415) | 22190596 edges | 28769868 triangles
-PR on SNAP/as-Skitter took  1.1028703795745969 average for 3 runs
-TC1 on SNAP/as-Skitter took  0.5920128105208278 average for 3 runs
-TC3 on SNAP/as-Skitter took  0.36852081834028166 average for 3 runs
-
-SNAP/com-LiveJournal | (3997962, 3997962) | 69362378 edges | 177820130 triangles
-PR on SNAP/com-LiveJournal took  1.6457969363157947 average for 3 runs
-TC1 on SNAP/com-LiveJournal took  2.260039218390981 average for 3 runs
-TC3 on SNAP/com-LiveJournal took  1.1801749498893817 average for 3 runs
-
-SNAP/com-Orkut | (3072441, 3072441) | 234370166 edges | 627584181 triangles
-PR on SNAP/com-Orkut took  3.9967559004823365 average for 3 runs
-TC1 on SNAP/com-Orkut took  19.678500127668183 average for 3 runs
-TC3 on SNAP/com-Orkut took  9.41144435852766 average for 3 runs
-
-SNAP/com-Friendster | (65608366, 65608366) | 3612134270 edges | 4173724142 triangles
-PR on SNAP/com-Friendster took  244.4239060273394 average for 3 runs
-TC1 on SNAP/com-Friendster took  439.0879410520817 average for 3 runs
-TC3 on SNAP/com-Friendster took  214.21172545601925 average for 3 runs
-
-Script done on Thu 12 Aug 2021 01:23:11 PM CDT
-
---------------------------------------------------------------------------------
-LAGraph results using SuiteSparse:GraphBLAS 5.1.5 and gcc 5.4.0, Aug 10, 2021
---------------------------------------------------------------------------------
-
-TC1 and TC3 are at:
-https://github.com/GraphBLAS/LAGraph/blob/reorg/experimental/algorithm/LAGraph_VertexCentrality_Triangle.c
-
-# of trials: 3
-threads to test:  40
-Avg: TCentrality(1) nthreads:  40 time:     0.150979 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
-Avg: TCentrality(3) nthreads:  40 time:     0.122971 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
-
-Avg: TCentrality(1) nthreads:  40 time:     0.551111 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
-Avg: TCentrality(3) nthreads:  40 time:     0.364334 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
-
-Avg: TCentrality(1) nthreads:  40 time:     2.150466 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
-Avg: TCentrality(3) nthreads:  40 time:     1.176027 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
-
-Avg: TCentrality(1) nthreads:  40 time:    19.581139 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
-Avg: TCentrality(3) nthreads:  40 time:     9.976416 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
-
-Avg: TCentrality(1) nthreads:  40 time:   442.873336 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
-Avg: TCentrality(3) nthreads:  40 time:   229.267167 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
-
-
---------------------------------------------------------------------------------
-LAGraph results using SuiteSparse:GraphBLAS 5.1.5 and gcc 10.1.0, Aug 11, 2021
---------------------------------------------------------------------------------
-
-Performance looks much better than gcc 5.4.0.
-
-Avg: TCentrality(1) nthreads:  40 time:     0.143810 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
-Avg: TCentrality(3) nthreads:  40 time:     0.121309 matrix: /raid/matrices/com-Youtube/com-Youtube.grb
-
-Avg: TCentrality(1) nthreads:  40 time:     0.519295 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
-Avg: TCentrality(3) nthreads:  40 time:     0.324038 matrix: /raid/matrices/as-Skitter/as-Skitter.grb
-
-Avg: TCentrality(1) nthreads:  40 time:     2.073290 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
-Avg: TCentrality(3) nthreads:  40 time:     1.067273 matrix: /raid/matrices/com-LiveJournal/com-LiveJournal.grb
-
-Avg: TCentrality(1) nthreads:  40 time:    18.820106 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
-Avg: TCentrality(3) nthreads:  40 time:     9.128309 matrix: /raid/matrices/com-Orkut/com-Orkut.grb
-
-Avg: TCentrality(1) nthreads:  40 time:   425.837018 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
-Avg: TCentrality(3) nthreads:  40 time:   210.865041 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
-
+Latest results
 
 --------------------------------------------------------------------------------
 LAGraph results using SuiteSparse:GraphBLAS 5.1.5 and gcc 10.2.0, Aug 11, 2021
@@ -140,6 +20,19 @@ Avg: TCentrality(3) nthreads:  40 time:     9.126447 matrix: /raid/matrices/com-
 
 Avg: TCentrality(1) nthreads:  40 time:   424.424901 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
 Avg: TCentrality(3) nthreads:  40 time:   208.353675 matrix: /raid/matrices/com-Friendster/com-Friendster.grb
+
+================================================ Aug 17 results =================
+
+--------------------------------------------------------------------------------
+LAGraph results, Aug 17, 11pm (GraphBLAS compiled with gcc 10.2.0)
+--------------------------------------------------------------------------------
+
+from lagraph/o4_pagerank output file:
+youtube    3f: 40: avg time:      0.208 (sec), rate:   1065.260 iters: 37
+skitter    3f: 40: avg time:      0.229 (sec), rate:   3686.978 iters: 38
+livejnl    3f: 40: avg time:      0.381 (sec), rate:   4374.016 iters: 24
+orkut      3f: 40: avg time:      1.067 (sec), rate:   4613.892 iters: 21
+friendster 3f: 40: avg time:     72.073 (sec), rate:   1252.945 iters: 25
 
 --------------------------------------------------------------------------------
 Python results, Aug 17, 11pm: (GraphBLAS compiled with gcc 10.2.1)
@@ -166,17 +59,6 @@ TC1 on SNAP/com-Friendster took  438.4226911123842 average for 3 runs
 TC3 on SNAP/com-Friendster took  213.99617547666034 average for 3 runs
 
 --------------------------------------------------------------------------------
-LAGraph results, Aug 17, 11pm (GraphBLAS compiled with gcc 10.2.0)
---------------------------------------------------------------------------------
-
-from lagraph/o4_pagerank output file:
-youtube    3f: 40: avg time:      0.208 (sec), rate:   1065.260 iters: 37
-skitter    3f: 40: avg time:      0.229 (sec), rate:   3686.978 iters: 38
-livejnl    3f: 40: avg time:      0.381 (sec), rate:   4374.016 iters: 24
-orkut      3f: 40: avg time:      1.067 (sec), rate:   4613.892 iters: 21
-friendster 3f: 40: avg time:     72.073 (sec), rate:   1252.945 iters: 25
-
---------------------------------------------------------------------------------
 julia results, Aug 17, 11pm (GraphBLAS compiled with gcc 6)
 --------------------------------------------------------------------------------
 
@@ -199,4 +81,9 @@ com-Orkut | (3072441, 3072441) | 234370166 edges
 PR on com-Orkut over 3 runs took an average of: 1.1899301556666666s
 TC1 on com-Orkut over 3 runs took an average of: 20.179403974666666s
 TC3 on com-Orkut over 3 runs took an average of: 9.867612923666666s
+
+com-Friendster | (65608366, 65608366) | 3612134270 edges
+PR on com-Friendster over 3 runs took an average of: 83.51843056199999s
+Benchmarking TC1 on com-Friendster
+Killed
 
