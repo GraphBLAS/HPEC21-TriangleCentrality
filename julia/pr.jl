@@ -6,7 +6,7 @@ function PR(A, d, α = 0.85, maxiters = 100, ϵ = 1.0e-4)
     dmin = GBVector(n, 1.0 / n)
     eadd!(d, d, dmin, max)
     teleport = (1 - α) / n
-    for _ ∈ 1:maxiters
+    for i ∈ 1:maxiters
         temp = t; t = r; r = temp
         w = t ./ d
         r[:] = teleport

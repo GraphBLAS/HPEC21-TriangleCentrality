@@ -10,10 +10,10 @@ include("pr.jl")
 graphs = [
     #"karate",
     "com-Youtube",
-    "as-Skitter",
-    "com-LiveJournal",
-    "com-Orkut",
-    "com-Friendster",
+    #"as-Skitter",
+    #"com-LiveJournal",
+    #"com-Orkut",
+    #"com-Friendster",
 ]
 
 ssmc = ssmc_db()
@@ -30,7 +30,7 @@ for name ∈ graphs
     d = reduce(+, G; dims=2)
     for centrality in [PR, TC1, TC3]
         println("Benchmarking $(string(centrality)) on $(name)")
-        result = @benchmark $centrality($G, $d) samples=3 seconds=70
+        result = @benchmark $centrality($G, $d) samples=3 evals=1
         show(stdout,MIME"text/plain"(),result)
     end
 end
