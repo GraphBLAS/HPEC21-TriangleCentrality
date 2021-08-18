@@ -19,6 +19,6 @@ function PR(A, d, α = 0.85, maxiters = 100, ϵ = 1.0e-4)
         end
         i = j
     end
-    print(i)
+    println("ITERATIONS: $i")
     return r
 end
