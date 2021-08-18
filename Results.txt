@@ -103,3 +103,19 @@ trial time: 220.912358937
 trial time: 223.621668639
 Killed
 
+julia> include("script4.jl")
+┌ Info: loaded database with revision date
+└   last_rev_date = "08-Oct-2020 17:09:58"
+com-Youtube | (1134890, 1134890) | 5975248 edges
+Benchmarking TC1 on com-Youtube
+warmup 3.677144435
+trial time: 0.197694152
+trial time: 0.171315591
+trial time: 0.165857977
+TC1 on com-Youtube over 3 runs took an average of: 0.17828924000000002s
+com-Friendster | (65608366, 65608366) | 3612134270 edges
+Benchmarking TC1 on com-Friendster
+warmup 449.34264421
+Killed
+hypersparse $ 
+
