@@ -87,3 +87,19 @@ PR on com-Friendster over 3 runs took an average of: 83.51843056199999s
 Benchmarking TC1 on com-Friendster
 Killed
 
+rerunning just TC3 on youtube, then friendster:
+com-Youtube | (1134890, 1134890) | 5975248 edges
+Benchmarking TC3 on com-Youtube
+warmup 3.243390264
+trial time: 0.174843724
+trial time: 0.140968145
+trial time: 0.132351352
+TC3 on com-Youtube over 3 runs took an average of: 0.14938774033333335s
+
+com-Friendster | (65608366, 65608366) | 3612134270 edges
+Benchmarking TC3 on com-Friendster
+warmup 221.513190564
+trial time: 220.912358937
+trial time: 223.621668639
+Killed
+
