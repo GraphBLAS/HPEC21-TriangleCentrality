@@ -10,10 +10,10 @@ include("pr.jl")
 graphs = [
     #"karate",
     "com-Youtube",
-    #"as-Skitter",
-    #"com-LiveJournal",
-    #"com-Orkut",
-    #"com-Friendster",
+    "as-Skitter",
+    "com-LiveJournal",
+    "com-Orkut",
+    "com-Friendster",
 ]
 
 ssmc = ssmc_db()
