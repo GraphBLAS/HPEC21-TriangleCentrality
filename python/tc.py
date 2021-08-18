@@ -5,14 +5,16 @@ from pygraphblas.descriptor import T0, ST0, ST1
 from math import isclose
 
 
-def PR(A, damping=0.85, itermax=100, tol=1e-4):
-    d = A.reduce_vector()
+def PR(A, d_out, damping=0.85, itermax=100, tol=1e-4):
     n = A.nrows
     t = Vector.sparse(FP64, n)
     r = Vector.dense(FP64, n, fill=1.0 / n)
-    d.assign_scalar(damping, accum=FP64.div)
+    # d.assign_scalar(damping, accum=FP64.div)
+    d = d_out / damping
+    dmin = Vector.dense(FP64, n, fill=1.0 /damping)
+    d.eadd (dmin, FP64.max, out=d)
     teleport = (1 - damping) / n
-    for i in range(itermax):
+    for i in range(1,itermax):
         temp = t
         t = r
         r = temp
@@ -31,14 +33,14 @@ def PR(A, damping=0.85, itermax=100, tol=1e-4):
     return r
 
 
-def TC1(A):
+def TC1(A,d):
     T = A.mxm(A, mask=A, desc=ST1)
     y = T.reduce_vector()
     k = y.reduce_float()
     return (3 * (A @ y) - 2 * (T.one() @ y) + y) / k
 
 
-def TC3(A):
+def TC3(A,d):
     M = A.tril(-1)
     T = A.plus_pair(A, mask=M, desc=ST1)
     y = T.reduce() + T.reduce(desc=T0)
@@ -67,14 +69,16 @@ def main(graphs, repeat=3):
         ]
         G = G.cast(FP64)
         G.wait()
+        d = G.reduce_vector()
+        print(f"missing entries in d: {(d.size-d.nvals)} ") ;
         results = defaultdict(dict)
         print(f"{name} | {G.shape} | {G.nvals} edges | {tcount(G)} triangles")
-        options_set(burble=True)
+        # options_set(burble=True)
         for centrality in PR, TC1, TC3:
             fname = centrality.__name__
             print(f"Running {fname} on {name} {repeat} times")
             result = timeit.repeat(
-                "results[name][fname] = centrality(G)",
+                "results[name][fname] = centrality(G,d)",
                 repeat=repeat,
                 number=1,
                 globals=locals(),
@@ -84,7 +88,7 @@ def main(graphs, repeat=3):
                 sum(result) / len(result),
                 f"average for {repeat} runs",
             )
-        options_set(burble=False)
+        # options_set(burble=False)
         tc1 = results[name]["TC1"].nonzero()
         tc3 = results[name]["TC3"].nonzero()
         print(f"TC1 equal to TC3? {tc1.iseq(tc3, isclose)}")

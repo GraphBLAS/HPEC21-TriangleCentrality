@@ -6883,4 +6883,66 @@ iterations: 24====================================
  [ GrB_apply (in-place-op) 
    0.0207 sec ]
  [ GrB_reduce (A full) 
-   
+   0.0127 sec ]
+ [ GrB_eWiseMult dense C=A+B 
+   0.0324 sec ]
+ [ GrB_assign (iso assign) (pending: 0) Method 21: (C full) = scalar 
+   0.0232 sec ]
+ [ GrB_mxv C=A'*B, dot_product (dot4) (F+=S'*F) (C in place) 
+   3.26 sec ]
+ [ GrB_eWiseAdd dense C=A+B 
+   0.0269 sec ]
+ [ GrB_apply (in-place-op) 
+   0.0203 sec ]
+ [ GrB_reduce (A full) 
+   0.0122 sec ]
+ [ GrB_eWiseMult dense C=A+B 
+   0.0312 sec ]
+ [ GrB_assign (iso assign) (pending: 0) Method 21: (C full) = scalar 
+   0.0233 sec ]
+ [ GrB_mxv C=A'*B, dot_product (dot4) (F+=S'*F) (C in place) 
+   3.25 sec ]
+ [ GrB_eWiseAdd dense C=A+B 
+   0.0269 sec ]
+ [ GrB_apply (in-place-op) 
+   0.0207 sec ]
+ [ GrB_reduce (A full) 
+   0.0105 sec ]
+iterations: 24====================================
+PR on SNAP/com-Friendster took  85.72388554333399 average for 3 runs
+Running TC1 on SNAP/com-Friendster 3 times
+ [ GrB_mxm C<M>=A'*B, masked_dot_product (dot3) (S{S}=S'*S) nthreads 40 ntasks 1280 
+   428 sec ]
+ [ GrB_reduce (wait:A 722080202 zombies, 0 pending) C=A'*B, dot_product (dot2) (B=S'*F) 
+   10.3 sec ]
+ [ GrB_reduce (A bitmap) 
+   0.0105 sec ]
+ [ GrB_mxv C=A'*B, dot_product (dot2) (B=S'*B) 
+   5.45 sec ]
+ [ GrB_apply (shallow-op) 
+   0.0343 sec ]
+ [ GrB_apply (shallow-op) (iso apply) (iso apply) 
+   0.904 sec ]
+ [ GrB_mxv C=A'*B, dot_product (dot2) (B=S'*B) 
+   4.35 sec ]
+ [ GrB_apply (shallow-op) 
+   0.0417 sec ]
+ [ GrB_eWiseAdd add:(B<.>=B+B) 
+   0.0449 sec ]
+ [ GrB_eWiseAdd add:(B<.>=B+B) 
+   0.0481 sec ]
+ [ GrB_apply (shallow-op) 
+   0.0355 sec ]
+ [ GrB_mxm C<M>=A'*B, masked_dot_product (dot3) (S{S}=S'*S) nthreads 40 ntasks 1280 
+^C^C^Z
+[1]+  Stopped                 python HPEC21-TriangleCentrality/python/tc.py
+(pygraphblas_test) [0;36mhypersparse $[0m kill -9 %1
+
+[1]+  Stopped                 python HPEC21-TriangleCentrality/python/tc.py
+(pygraphblas_test) [0;36mhypersparse $[0m 
+(pygraphblas_test) [0;36mhypersparse $[0m 
+(pygraphblas_test) [0;36mhypersparse $[0m 
+(pygraphblas_test) [0;36mhypersparse $[0m exit
+exit
+
+Script done on Tue 17 Aug 2021 05:47:44 PM CDT
