@@ -8,7 +8,7 @@ using LinearAlgebra
 include("tc.jl")
 include("pr.jl")
 graphs = [
-    #"karate",
+    "karate",
     "com-Youtube",
     "as-Skitter",
     "com-LiveJournal",
@@ -38,6 +38,7 @@ for name ∈ graphs
             j = @elapsed centrality(G, d)
             println("trial time: $(j)")
             i += j
+            GC.gc()
         end
         println("$(string(centrality)) on $(name) over 3 runs took an average of: $(i / 3)s")
     end
