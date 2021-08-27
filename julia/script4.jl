@@ -10,9 +10,9 @@ include("pr.jl")
 graphs = [
     #"karate",
     "com-Youtube",
-    #"as-Skitter",
-    #"com-LiveJournal",
-    #"com-Orkut",
+    "as-Skitter",
+    "com-LiveJournal",
+    "com-Orkut",
     "com-Friendster",
 ]
 
@@ -28,8 +28,8 @@ for name ∈ graphs
     diag(G)
     println("$name | $(size(G)) | $(nnz(G)) edges")
     d = reduce(+, G; dims=2)
-    # for centrality in [PR, TC1, TC3]
-    for centrality in [TC1]
+    for centrality in [PR, TC1, TC3]
+    #for centrality in [TC1]
         println("Benchmarking $(string(centrality)) on $(name)")
         i = 0.0
         j = @elapsed centrality(G, d) #warmup
