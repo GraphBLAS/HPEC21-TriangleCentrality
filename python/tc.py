@@ -7,23 +7,20 @@ from math import isclose
 
 def PR(A, d_out, damping=0.85, itermax=100, tol=1e-4):
     n = A.nrows
+    d = d_out / damping
     t = Vector.sparse(FP64, n)
     r = Vector.dense(FP64, n, fill=1.0 / n)
-    d = d_out / damping
     dmin = Vector.dense(FP64, n, fill=1.0 / damping)
-    d.eadd(dmin, FP64.max, out=d)
+    d.max_monoid(dmin, out=d)
     teleport = (1 - damping) / n
     for i in range(1, itermax):
-        temp = t
-        t = r
-        r = temp
+        t, r = r, t
         w = t / d
         r[:] = teleport
         A.plus_second(w, out=r, accum=FP64.plus)
         t -= r
         t.abs(out=t)
         if t.reduce_float() <= tol:
-            print(f"iterations: {i}====================================")
             break
     return r
 
@@ -38,7 +35,7 @@ def TC1(A, d):
 def TC3(A, d):
     M = A.tril(-1)
     T = A.plus_pair(A, mask=M, desc=ST1)
-    y = T.reduce() + T.reduce(desc=T0)
+    y = T.reduce_vector() + T.reduce_vector(desc=T0)
     k = y.reduce_float()
     T2 = T.plus_second(y) + T.plus_second(y, desc=T0)
     r = (3 * A.plus_second(y)) + ((-2) * T2) + y
