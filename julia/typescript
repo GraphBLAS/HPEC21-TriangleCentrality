@@ -1,0 +1,218 @@
+Script started on Fri 27 Aug 2021 04:04:42 PM CDT
+groups: cannot find name for group ID 8047
+Intel Suite:
+Copyright (C) 2009-2019 Intel Corporation. All rights reserved.
+Intel(R) VTune(TM) Amplifier 2019 (build 591499)
+[1;34m==>[0m 84 installed packages
+-- [0;35mlinux-ubuntu16.04-broadwell[0m / [0;32mgcc@5.4.0[0m ----------------------
+ack[0;36m@2.22[0m                     gcc[0;36m@4.9.4[0m       libedit[0;36m@3.1-20191231[0m  mpfr[0;36m@3.1.6[0m            python[0;36m@3.7.7[0m
+autoconf[0;36m@2.69[0m                gcc[0;36m@6.3.0[0m       libevent[0;36m@2.1.12[0m       mpfr[0;36m@4.0.2[0m            python[0;36m@3.8.0[0m
+autoconf[0;36m@2.69[0m                gcc[0;36m@9.3.0[0m       libffi[0;36m@3.3[0m            mpfr[0;36m@4.0.2[0m            python[0;36m@3.8.7[0m
+autoconf-archive[0;36m@2019.01.06[0m  gcc[0;36m@10.1.0[0m      libffi[0;36m@3.3[0m            ncurses[0;36m@6.2[0m           readline[0;36m@8.0[0m
+automake[0;36m@1.16.2[0m              gcc[0;36m@10.2.0[0m      libiconv[0;36m@1.16[0m         numactl[0;36m@2.0.14[0m        sqlite[0;36m@3.31.1[0m
+automake[0;36m@1.16.3[0m              gdbm[0;36m@1.18.1[0m     libidn2[0;36m@2.1.1a[0m        openmpi[0;36m@4.0.5[0m         sqlite[0;36m@3.34.0[0m
+bc[0;36m@1.07[0m                      gettext[0;36m@0.20.2[0m  libidn2[0;36m@2.3.0[0m         openssh[0;36m@8.4p1[0m         tar[0;36m@1.32[0m
+berkeley-db[0;36m@18.1.40[0m          gettext[0;36m@0.21[0m    libpciaccess[0;36m@0.16[0m     openssl[0;36m@1.1.1g[0m        texinfo[0;36m@6.5[0m
+boost[0;36m@1.75.0[0m                 git[0;36m@2.26.0[0m      libsigsegv[0;36m@2.12[0m       openssl[0;36m@1.1.1j[0m        util-linux-uuid[0;36m@2.36[0m
+bzip2[0;36m@1.0.8[0m                  git[0;36m@2.29.0[0m      libtool[0;36m@2.4.6[0m         pcre2[0;36m@10.31[0m           util-macros[0;36m@1.19.1[0m
+cmake[0;36m@3.19.5[0m                 gmp[0;36m@6.1.2[0m       libunistring[0;36m@0.9.10[0m   pcre2[0;36m@10.35[0m           valgrind[0;36m@3.16.1[0m
+curl[0;36m@7.68.0[0m                  gmp[0;36m@6.2.1[0m       libxml2[0;36m@2.9.10[0m        perl[0;36m@5.30.2[0m           xz[0;36m@5.2.5[0m
+curl[0;36m@7.74.0[0m                  hwloc[0;36m@2.4.0[0m     libxml2[0;36m@2.9.10[0m        perl[0;36m@5.32.1[0m           xz[0;36m@5.2.5[0m
+diffutils[0;36m@3.7[0m                isl[0;36m@0.18[0m        m4[0;36m@1.4.18[0m             pkgconf[0;36m@1.6.3[0m         zlib[0;36m@1.2.11[0m
+ed[0;36m@1.4[0m                       isl[0;36m@0.20[0m        mpc[0;36m@1.1.0[0m             pkgconf[0;36m@1.7.3[0m         zstd[0;36m@1.4.4[0m
+expat[0;36m@2.2.9[0m                  isl[0;36m@0.21[0m        mpc[0;36m@1.1.0[0m             py-pip[0;36m@19.3[0m           zstd[0;36m@1.4.5[0m
+expat[0;36m@2.2.10[0m                 libbsd[0;36m@0.10.0[0m   mpc[0;36m@1.1.0[0m             py-setuptools[0;36m@46.1.3[0m
+gcc (Spack GCC) 10.2.0
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Python 2.7.12
+Python 3.8.0
+[0;36mhypersparse $[0m cd ../../[K[K[Kjulia/
+[0;36mhypersparse $[0m dir
+total 52
+ 4 LocalPreferences.toml   4 pr.jl          4 script2.jl   4 script4.jl   4 tc.jl
+20 Manifest.toml           4 Project.toml   4 script3.jl   4 script.jl    0 typescript
+[0;36mhypersparse $[0m cd ../../julia/
+[0;36mhypersparse $[0m dir
+total 496
+  4 [0m[01;32mbase[0m/          20 CONTRIBUTING.md  292 HISTORY.md   52 Make.inc     4 [01;32mstdlib[0m/        4 [01;32musr-staging[0m/
+  4 CITATION.bib    4 [01;32mdeps[0m/              0 [01;36mjulia[0m@       24 NEWS.md      4 sysimage.mk    4 VERSION
+  4 [01;32mcli[0m/            4 [01;32mdoc[0m/               8 LICENSE.md    8 README.md    4 [01;32mtest[0m/
+  4 [01;32mcontrib[0m/        4 [01;32metc[0m/              28 Makefile     12 [01;32msrc[0m/         4 [01;32musr[0m/
+[0;36mhypersparse $[0m ./julia 
+               [1m[32m_[0m
+   [1m[34m_[0m       [0m_[0m [1m[31m_[1m[32m(_)[1m[35m_[0m     |  Documentation: https://docs.julialang.org
+  [1m[34m(_)[0m     | [1m[31m(_)[0m [1m[35m(_)[0m    |
+   [0m_ _   _| |_  __ _[0m   |  Type "?" for help, "]?" for Pkg help.
+  [0m| | | | | | |/ _` |[0m  |
+  [0m| | |_| | | | (_| |[0m  |  Version 1.6.2 (2021-07-14)
+ [0m_/ |\__'_|_|_|\__'_|[0m  |  
+[0m|__/[0m                   |
+
+[?2004h[0K[32m[1mjulia> [0m[0m[7C[7C[0K[0K[31m[1mshell> [0m[0m[7C[7Ccd ../H[0K[31m[1mshell> [0m[0m[7Ccd ../HPEC21-TriangleCentrality/[39Cju[0K[31m[1mshell> [0m[0m[7Ccd ../HPEC21-TriangleCentrality/julia/[45C[0K[31m[1mshell> [0m[0m[7Ccd ../HPEC21-TriangleCentrality/julia/[45C
+[?2004l[0m/home/faculty/davis/GrB/HPEC21-TriangleCentrality/julia
+
+[?2004h[0K[31m[1mshell> [0m[0m[7C[7Cdir[0K[31m[1mshell> [0m[0m[7Cdir[10C
+[?2004l[0mLocalPreferences.toml  Manifest.toml  pr.jl  Project.toml  script2.jl  script3.jl  script4.jl  script.jl  tc.jl  typescript
+
+[?2004h[0K[31m[1mshell> [0m[0m[7C[7C[0K[0K[32m[1mjulia> [0m[0m[7C[7C[0K[0K[34m[1m(@v1.6) pkg> [0m[13C[13Cactivate .[0K[34m[1m(@v1.6) pkg> [0m[13Cactivate .[23C
+[?2004l[0m[32m[1m  Activating[22m[39m environment at `~/GrB/HPEC21-TriangleCentrality/julia/Project.toml`
+
+[?2004h[0K[34m[1m(julia) pkg> [0m[13C[13C[0K[0K[32m[1mjulia> [0m[0m[7C[7Cinclude('script4j[0K[32m[1mjulia> [0m[0m[7Cinclude('script4[23C.jl')[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl')[28C
+[?2004l[0m[91m[1mERROR: [22m[39msyntax: character literal contains multiple characters
+Stacktrace:
+ [1] top-level scope
+[90m   @ [39m[90;4mnone:1[0m
+
+[0K[0K[32m[1mjulia> [0m[0m[7C[7C[?2004h[0K[32m[1mjulia> [0m[0m[7C[7C[0K[0K[32m[1mjulia> [0m[0m[7C[7C[0K[0K[32m[1mjulia> [0m[0m[7C[7C[0K[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl')[28C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl')[28C[0K[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl')[28C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl')[27C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl)[26C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[27C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[26C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[25C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[24C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[23C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[22C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[21C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[20C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[19C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[18C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[17C[0K[32m[1mjulia> [0m[0m[7Cinclude('script4.jl")[16C[0K[32m[1mjulia> [0m[0m[7Cinclude(script4.jl")[15C[0K[32m[1mjulia> [0m[0m[7Cinclude("script4.jl")[16C[0K[32m[1mjulia> [0m[0m[7Cinclude("script4.jl")[28C
+[?2004l[0m[36m[1m[ [22m[39m[36m[1mInfo: [22m[39mPrecompiling SuiteSparseGraphBLAS [c2e53296-7b14-11e9-1210-bddfa8111e1d]
+[36m[1m┌ [22m[39m[36m[1mInfo: [22m[39mloaded database with revision date
+[36m[1m└ [22m[39m  last_rev_date = "08-Oct-2020 17:09:58"
+karate | (34, 34) | 156 edges
+Benchmarking PR on karate
+ITERATIONS: 18
+warmup 3.188905602
+ITERATIONS: 18
+trial time: 0.000294671
+ITERATIONS: 18
+trial time: 0.000378681
+ITERATIONS: 18
+trial time: 0.00047463
+PR on karate over 3 runs took an average of: 0.0003826606666666667s
+Benchmarking TC1 on karate
+warmup 0.993161111
+trial time: 8.1441e-5
+trial time: 0.000131368
+trial time: 0.000129156
+TC1 on karate over 3 runs took an average of: 0.00011398833333333334s
+Benchmarking TC3 on karate
+warmup 0.775058863
+trial time: 0.000147053
+trial time: 0.000217035
+trial time: 0.000183748
+TC3 on karate over 3 runs took an average of: 0.000182612s
+com-Youtube | (1134890, 1134890) | 5975248 edges
+Benchmarking PR on com-Youtube
+ITERATIONS: 36
+warmup 0.237942418
+ITERATIONS: 36
+trial time: 0.223029324
+ITERATIONS: 36
+trial time: 0.219705727
+ITERATIONS: 36
+trial time: 0.219173829
+PR on com-Youtube over 3 runs took an average of: 0.22063629333333332s
+Benchmarking TC1 on com-Youtube
+warmup 0.156905105
+trial time: 0.163050368
+trial time: 0.157655485
+trial time: 0.161261681
+TC1 on com-Youtube over 3 runs took an average of: 0.16065584466666666s
+Benchmarking TC3 on com-Youtube
+warmup 0.111739046
+trial time: 0.111380397
+trial time: 0.122750542
+trial time: 0.113780979
+TC3 on com-Youtube over 3 runs took an average of: 0.11597063933333333s
+as-Skitter | (1696415, 1696415) | 22190596 edges
+Benchmarking PR on as-Skitter
+ITERATIONS: 37
+warmup 0.298337114
+ITERATIONS: 37
+trial time: 0.300684866
+ITERATIONS: 37
+trial time: 0.289621156
+ITERATIONS: 37
+trial time: 0.288151878
+PR on as-Skitter over 3 runs took an average of: 0.2928193s
+Benchmarking TC1 on as-Skitter
+warmup 0.551876125
+trial time: 0.565540699
+trial time: 0.662948847
+trial time: 0.551539511
+TC1 on as-Skitter over 3 runs took an average of: 0.5933430190000001s
+Benchmarking TC3 on as-Skitter
+warmup 0.345139952
+trial time: 0.359150991
+trial time: 0.349032037
+trial time: 0.34578027
+TC3 on as-Skitter over 3 runs took an average of: 0.35132109933333333s
+com-LiveJournal | (3997962, 3997962) | 69362378 edges
+Benchmarking PR on com-LiveJournal
+ITERATIONS: 23
+warmup 0.490913739
+ITERATIONS: 23
+trial time: 0.499373374
+ITERATIONS: 23
+trial time: 0.492078878
+ITERATIONS: 23
+trial time: 0.507010553
+PR on com-LiveJournal over 3 runs took an average of: 0.49948760166666667s
+Benchmarking TC1 on com-LiveJournal
+warmup 2.143117189
+trial time: 2.361827246
+trial time: 2.218277299
+trial time: 2.145822144
+TC1 on com-LiveJournal over 3 runs took an average of: 2.241975563s
+Benchmarking TC3 on com-LiveJournal
+warmup 1.234483332
+trial time: 1.149236058
+trial time: 1.132393879
+trial time: 1.13117756
+TC3 on com-LiveJournal over 3 runs took an average of: 1.137602499s
+com-Orkut | (3072441, 3072441) | 234370166 edges
+Benchmarking PR on com-Orkut
+ITERATIONS: 20
+warmup 1.187643649
+ITERATIONS: 20
+trial time: 1.274519253
+ITERATIONS: 20
+trial time: 1.186815695
+ITERATIONS: 20
+trial time: 1.183134973
+PR on com-Orkut over 3 runs took an average of: 1.214823307s
+Benchmarking TC1 on com-Orkut
+warmup 19.006516824
+trial time: 19.317648262
+trial time: 18.929999742
+trial time: 18.927133435
+TC1 on com-Orkut over 3 runs took an average of: 19.058260479666668s
+Benchmarking TC3 on com-Orkut
+warmup 9.247750651
+trial time: 9.296298072
+trial time: 9.249481528
+trial time: 9.268409409
+TC3 on com-Orkut over 3 runs took an average of: 9.271396336333334s
+com-Friendster | (65608366, 65608366) | 3612134270 edges
+Benchmarking PR on com-Friendster
+ITERATIONS: 24
+warmup 84.244345436
+ITERATIONS: 24
+trial time: 84.701125242
+ITERATIONS: 24
+trial time: 84.504492453
+ITERATIONS: 24
+trial time: 84.319663399
+PR on com-Friendster over 3 runs took an average of: 84.50842703133334s
+Benchmarking TC1 on com-Friendster
+warmup 430.543932989
+trial time: 428.745350382
+trial time: 426.301809001
+trial time: 425.410552554
+TC1 on com-Friendster over 3 runs took an average of: 426.81923731233337s
+Benchmarking TC3 on com-Friendster
+warmup 212.394389931
+trial time: 212.412130341
+trial time: 215.551109282
+trial time: 212.902569027
+TC3 on com-Friendster over 3 runs took an average of: 213.62193621666665s
+
+[0K[0K[32m[1mjulia> [0m[0m[7C[7C[?2004h[0K[32m[1mjulia> [0m[0m[7C[7C[0K[32m[1mjulia> [0m[0m[7C[7C
+[?2004l
+[0K[0K[32m[1mjulia> [0m[0m[7C[7C[?2004h[0K[32m[1mjulia> [0m[0m[7C[7Cexit()[0K[32m[1mjulia> [0m[0m[7Cexit()[13C
+[?2004l[0m[0;36mhypersparse $[0m exit
+exit
+
+Script done on Fri 27 Aug 2021 05:56:37 PM CDT

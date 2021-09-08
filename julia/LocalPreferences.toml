@@ -1,0 +1,2 @@
+[SuiteSparseGraphBLAS]
+shared_lib = "/home/faculty/davis/GrB/GraphBLAS/build/libgraphblas.so.5.1.5"
